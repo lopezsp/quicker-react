@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { UserCircleIcon } from "@heroicons/react/24/solid";
 
 const NavBar = () => {
   const activeStyle = 'underline underline-offset-4'
@@ -21,7 +22,9 @@ const NavBar = () => {
           <NavLink to="/login" className={({ isActive }) => isActive ? activeStyle : undefined }>Log In</NavLink>
         </li>
         <li>
-          <NavLink to="/users/{id}" className={({ isActive }) => isActive ? activeStyle : undefined }>My Account</NavLink>
+          <NavLink to="/users/{id}">
+            <UserCircleIcon className="h-6 w-6 text-black"></UserCircleIcon>
+          </NavLink>
         </li>
       </ul>
     </nav>
