@@ -8,23 +8,23 @@ const UserDetail = () => {
     
   const onClickHandler = async () => {    
     const datos = { "follower_id": 0 , "user_followed_id": context.userToShow.user_id }
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6InN0cmluZ3N0In0.CMaM-55DonarS4slJ4w4RgrjkeWMzxbFoCNX82raO4U"
+    const token = context.tokenAuth
 
-    const follow = await fetch(
-      "https://quickerfastapi-1-h4833778.deta.app/follow",{
-        method: 'POST',
-        credentials: "include" ,
-        headers: { "Content-Type": "application/json", "auth": token } ,
-        body: JSON.stringify(datos),
-      }        
-    )
-    const res = await follow.json()
-    console.log(res) 
+    if (token != '') {
+      const follow = await fetch(
+        `https://quickerfastapi-1-h4833778.deta.app/follow`,{
+          method: 'POST',
+          credentials: "include" ,
+          headers: { "Content-Type": "application/json", "auth": token } ,
+          body: JSON.stringify(datos),
+        }        
+      )
+      const res = await follow.json()
+      console.log(res) 
+    } else {
+      console.log('Error : You must be loged to follow a user')
+    }
   }
-
-
-
-
   
   return (
     <aside
@@ -42,11 +42,11 @@ const UserDetail = () => {
         <UserCircleIcon className="w-full h-full rounded-lg border mt-4"></UserCircleIcon>
       </figure>
       <p className="flex flex-col p-6">
-        <span className="font-medium text-2xl">Email:{context.userToShow.email}</span>
-        <span className="font-medium text-2xl">Name: {context.userToShow.first_name}</span>
-        <span className="font-medium text-2xl">Lastname: {context.userToShow.last_name}</span>
-        <span className="font-medium text-2xl">Birthdate: {context.userToShow.birth_date}</span>
-        <span className="font-medium text-2xl">Followers: {context.userToShow.followers}</span>
+        <span className=" font-light text-md">Email:{context.userToShow.email}</span>
+        <span className="font-light text-md ">Name: {context.userToShow.first_name}</span>
+        <span className="font-light text-md">Lastname: {context.userToShow.last_name}</span>
+        <span className="font-light text-md">Birthdate: {context.userToShow.birth_date}</span>
+        <span className="font-light text-md">Followers: {context.userToShow.followers}</span>
      </p>
      <button onClick={() => onClickHandler()}>
         Follow

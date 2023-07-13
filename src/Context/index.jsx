@@ -11,8 +11,14 @@ export const GetUserProvider = ({ children }) => {
 
   const [userToShow, setUserToShow] = useState({})
 
+  const [quickInfo, setQuickInfo] = useState({})
+
+  const [ tokenAuth, setTokenAuth ] = useState('')
+
+  const [ currentUser, setCurrentUser ] = useState({})
+
   return (
-    <GetUserContext.Provider value={{ count, setCount, openUserDetail, closeUserDetail, isUserOpen, userToShow, setUserToShow }}>
+    <GetUserContext.Provider value={{ currentUser, setCurrentUser, tokenAuth, setTokenAuth, count, setCount, openUserDetail, closeUserDetail, isUserOpen, userToShow, setUserToShow, quickInfo, setQuickInfo }}>
       {children}
     </GetUserContext.Provider>
   );

@@ -1,8 +1,10 @@
 import Layout from "../../components/Layout";
 import { useNavigate } from 'react-router-dom';
+import { GetUserContext } from '../../Context'
+import { useContext } from "react";
 
-const Signup = () => {
-  
+const Login = () => {
+  const context = useContext(GetUserContext)
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -10,39 +12,34 @@ const Signup = () => {
 
     const email = event.target.elements.email.value;
     const password = event.target.elements.password.value;
-    const nick_name = event.target.elements.nick_name.value;
-    const first_name = event.target.elements.first_name.value;
-    const last_name = event.target.elements.last_name.value;
-    const birth_date = event.target.elements.birth_date.value;
 
-    const url = "https://quickerfastapi-1-h4833778.deta.app/signup";
+    const url = "https://quickerfastapi-1-h4833778.deta.app/login";
     
     const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ 'email': email, 'password': password, 'nick_name': nick_name, 'first_name': first_name, 'last_name': last_name, 'birth_date': birth_date}),
+      body: JSON.stringify({ 'email': email, 'password': password}),
 
     })
     const res = await response.json()
-    console.log(res)
-    navigate('/login')
+    const token = res.token
+    const current_user = res.user
+    context.setTokenAuth(token)
+    context.setCurrentUser(current_user)
+    navigate('/')
   }
 
   return (
     <Layout>
       <section className="m-0 font-serif bg-lime-200 rounded-lg flex items-center flex-col justify-center p-10">
         <section className="flex flex-col">
-          <h2>Sign Up!</h2>
+          <h2>Log in</h2>
           <form className="flex flex-col" onSubmit={handleSubmit}>
             <input className=" m-3 mb-1 w-56" type="text" placeholder="Correo" name="email"/>
             <input className="m-3 mt-1 w-56" type="password" placeholder="Contraseña" name="password" />
-            <input className="m-3 mt-1 w-56" type="text" placeholder="Nick name" name="nick_name" />
-            <input className="m-3 mt-1 w-56" type="text" placeholder="First name" name="first_name" />
-            <input className="m-3 mt-1 w-56" type="text" placeholder="Last name" name="last_name" />
-            <input className="m-3 mt-1 w-56" type="date" placeholder="Birth date" name="birth_date" />
-              <button>DONE</button>            
+              <button>Log in</button>            
             <div className="">
               <label className=" font-normal pr-4">
                 <input type="checkbox" id="cbox1" value="first_checkbox" />
@@ -68,4 +65,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

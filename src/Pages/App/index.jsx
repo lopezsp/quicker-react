@@ -2,15 +2,17 @@ import { useRoutes, BrowserRouter } from 'react-router-dom'
 import './App.css'
 import Home from '../Home'
 import NotFound from '../NotFound'
-import Signup from '../Signup'
+import Login from '../Login'
 import NavBar from '../../components/NavBar'
+import Signup from '../Signup'
 import { GetUserProvider } from '../../Context'
 
 const AppRoutes = () => {
   let routes = useRoutes([
     { path:'/', element: <Home/> },
-    { path: '/signup', element: <Signup/> },
-    { path: '/*', element: <NotFound/> }
+    { path: '/login', element: <Login/> },
+    { path: '/*', element: <NotFound/> },
+    { path: '/signup', element: <Signup/> }
   ])
 
   return routes

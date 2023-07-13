@@ -15,9 +15,10 @@ const Card = (data) => {
       .then((u) => setUser(u));
   }, [data.data.by]);
 
-  const showUser = (userDetail) => {
+  const showUser = (userDetail, quick) => {
     context.openUserDetail()
     context.setUserToShow(userDetail)
+    context.setQuickInfo(quick)
   }
 
   return (
@@ -31,7 +32,7 @@ const Card = (data) => {
             {data.data.content}
           </p>
           <div className="absolute top-0 right-0 flex justify-center items-center bg-lime-400/40 w-6 h-6 rounded-full m-2 p-1">
-            <button onClick={() => showUser(user)}>+</button>
+            <button onClick={() => showUser(user, data.data)}>+</button>
           </div>
         </figure>
 
