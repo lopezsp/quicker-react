@@ -1,16 +1,16 @@
 import Layout from "../../components/Layout";
 import Card from "../../components/Card";
+import { PencilSquareIcon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
 import UserDetail from "../../components/UserDetail";
 import { useContext } from "react";
 import { GetUserContext } from "../../Context"
+import Quick from '../../components/Quick'
 
 function Home() {
   const context = useContext(GetUserContext);
   const [items, setItems] = useState(null);
-  const token = context.tokenAuth
-
-
+    
   useEffect(() => {
     fetch(
       "https://quickerfastapi-1-h4833778.deta.app",{
@@ -20,7 +20,7 @@ function Home() {
     )
     .then((response) => response.json())
     .then((data) => setItems(data));
-   /* if (token != '') {
+       /* if (token != '') {
       fetch(
         "https://quickerfastapi-1-h4833778.deta.app",{
         credentials: "include" ,
@@ -40,10 +40,13 @@ function Home() {
       .then((data) => setItems(data));
     }*/
       
-  }, [token]);
+  }, [context.count]);
 
   const saludo = context.currentUser?.first_name || 'Quicker'  
-  console.log(context.currentUser)
+  
+  const clickHandler = () => {
+    context.openQuickPost()
+  }
 
   return (
     <Layout>
@@ -53,7 +56,11 @@ function Home() {
           <Card data={item} key={item.quick_id} />
         ))}
       </div>
-      <UserDetail />
+      <UserDetail /> 
+      <Quick />
+      <button onClick={() => clickHandler()}>    
+        <PencilSquareIcon className="absolute bottom-24 right-96 rounded-lg cursor-pointer w-24 hover:bg-gray-200"/>     
+      </button>  
     </Layout>
   );
 }

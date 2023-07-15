@@ -39,7 +39,7 @@ const Login = () => {
           <form className="flex flex-col" onSubmit={handleSubmit}>
             <input className=" m-3 mb-1 w-56" type="text" placeholder="Correo" name="email"/>
             <input className="m-3 mt-1 w-56" type="password" placeholder="Contraseña" name="password" />
-              <button>Log in</button>            
+              <button type="submit">Log in</button>            
             <div className="">
               <label className=" font-normal pr-4">
                 <input type="checkbox" id="cbox1" value="first_checkbox" />

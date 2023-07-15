@@ -10,19 +10,32 @@ const UserDetail = () => {
     const datos = { "follower_id": 0 , "user_followed_id": context.userToShow.user_id }
     const token = context.tokenAuth
 
-    if (token != '') {
-      const follow = await fetch(
-        `https://quickerfastapi-1-h4833778.deta.app/follow`,{
+    if (context.iFollow){
+      if (token != '') {
+        const follow = await fetch(
+          `https://quickerfastapi-1-h4833778.deta.app/follow`,{
+            method: 'POST',
+            credentials: "include" ,
+            headers: { "Content-Type": "application/json", "auth": token } ,
+            body: JSON.stringify(datos),
+          }        
+        )
+        const res = await follow.json()
+        console.log(res) 
+      } else {
+        console.log('Error : You must be loged to follow a user')
+      }
+    } else {
+      const unfollow = await fetch(
+        `https://quickerfastapi-1-h4833778.deta.app/unfollow`,{
           method: 'POST',
           credentials: "include" ,
           headers: { "Content-Type": "application/json", "auth": token } ,
           body: JSON.stringify(datos),
         }        
       )
-      const res = await follow.json()
+      const res = await unfollow.json()
       console.log(res) 
-    } else {
-      console.log('Error : You must be loged to follow a user')
     }
   }
   
@@ -49,7 +62,7 @@ const UserDetail = () => {
         <span className="font-light text-md">Followers: {context.userToShow.followers}</span>
      </p>
      <button onClick={() => onClickHandler()}>
-        Follow
+        {context.showButton ? context.iFollow ? 'Follow' : 'Unfollow' : ''}
      </button>
     </aside>
   );

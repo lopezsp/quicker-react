@@ -4,6 +4,7 @@ import { GetUserContext } from '../../Context'
 const Card = (data) => {
   const context = useContext(GetUserContext)
   const [user, setUser] = useState(null);
+  const token = context.tokenAuth
 
   useEffect(() => {
     fetch(
@@ -15,10 +16,31 @@ const Card = (data) => {
       .then((u) => setUser(u));
   }, [data.data.by]);
 
-  const showUser = (userDetail, quick) => {
+  const showUser = async (userDetail, quick) => {
     context.openUserDetail()
     context.setUserToShow(userDetail)
     context.setQuickInfo(quick)
+    
+    if(token != ''){
+      const usersIFollow = await fetch('https://quickerfastapi-1-h4833778.deta.app/usersfollowed', {method: 'GET',
+      credentials: "include" ,
+      headers: { "Content-Type": "application/json", "auth": token }})
+      const res = await usersIFollow.json()
+      console.log(res)
+                  
+      for (let i = 0; i < res.length; i++) {
+        if (res[i].user_id == userDetail.user_id){
+          context.setIFollow(false)
+          console.log(context.iFollow)
+          break
+        }else{
+          context.setIFollow(true)
+        }
+      }
+      context.setShowButton(true)
+    } else {
+      context.setShowButton(true)
+    }
   }
 
   return (

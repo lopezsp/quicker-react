@@ -11,7 +11,7 @@ const NavBar = () => {
           <NavLink to="/">Quicker</NavLink>
         </li>
         <li>
-          <NavLink to="/myfollowers" className={({ isActive }) => isActive ? activeStyle : undefined }>Followers</NavLink>
+          <NavLink to='/myfollowers' className={({ isActive }) => isActive ? activeStyle : undefined }>Followers</NavLink>
         </li>
       </ul>
       <ul className="flex items-center gap-3">
