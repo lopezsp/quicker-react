@@ -1,0 +1,13 @@
+.padding-bottom-240 {
+    padding-bottom: 160px;
+}
+
+.custom-width {
+    max-width: 910px;
+    height: 160px; 
+    width: calc(100vw - 28px);
+    padding-left: 14px;
+    padding-right: 14px;
+}
+  
+

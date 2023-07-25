@@ -1,8 +1,17 @@
 import { NavLink } from "react-router-dom";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
+import { GetUserContext } from "../../Context";
+import { useContext } from "react";
 
 const NavBar = () => {
   const activeStyle = 'underline underline-offset-4'
+  const context = useContext(GetUserContext);
+
+  const showProfile = () => {
+    context.openUserDetail();
+    context.setUserToShow(context.currentUser);
+    context.setIFollow("Delete");
+  }
 
   return (
     <nav className='flex justify-between items-center fixed z-10 w-full py-5 px-8 text-sm font-light top-0'>
@@ -22,9 +31,9 @@ const NavBar = () => {
           <NavLink to="/login" className={({ isActive }) => isActive ? activeStyle : undefined }>Log In</NavLink>
         </li>
         <li>
-          <NavLink to="/users/{id}">
+          <button onClick={() => showProfile()} >
             <UserCircleIcon className="h-6 w-6 text-black"></UserCircleIcon>
-          </NavLink>
+          </button>
         </li>
       </ul>
     </nav>

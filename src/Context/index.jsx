@@ -9,13 +9,20 @@ export const GetUserProvider = ({ children }) => {
   const openUserDetail = () => setIsUserOpen(true);
   const closeUserDetail = () => {
     setIsUserOpen(false);
-    setShowButton(false)
+    setIFollow('')
+    setFollow(true)
   };
 
   const [isQuickOpen, setIsQuickOpen] = useState(false);
   const openQuickPost = () => setIsQuickOpen(true);
   const closeQuickPost = () => setIsQuickOpen(false);
 
+  const [isUpdateQuickOpen, setIsUpdateQuickOpen] = useState(false)
+  const openUpdateQuick = () => setIsUpdateQuickOpen(true)
+  const closeUpdateQuick = () => setIsUpdateQuickOpen(false);
+
+  const [isQuickDetailOpen, setIsQuickDetailOpen] = useState(false);
+  
   const [userToShow, setUserToShow] = useState({});
 
   const [quickInfo, setQuickInfo] = useState({});
@@ -24,15 +31,20 @@ export const GetUserProvider = ({ children }) => {
 
   const [currentUser, setCurrentUser] = useState({});
 
-  const [iFollow, setIFollow] = useState(true)
+  const [iFollow, setIFollow] = useState('')
 
-  const [showButton, setShowButton] = useState(false)
+  const [follow, setFollow] = useState(true)
 
-  return (
+    return (
     <GetUserContext.Provider
       value={{
-        showButton,
-        setShowButton,
+        isUpdateQuickOpen,
+        openUpdateQuick,
+        closeUpdateQuick,
+        isQuickDetailOpen,
+        setIsQuickDetailOpen,
+        follow,
+        setFollow,
         iFollow,
         setIFollow,
         isQuickOpen,

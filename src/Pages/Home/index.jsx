@@ -6,6 +6,9 @@ import UserDetail from "../../components/UserDetail";
 import { useContext } from "react";
 import { GetUserContext } from "../../Context"
 import Quick from '../../components/Quick'
+import QuickDetail from "../../components/QuickDetail";
+import "./styles.css";
+import UpdateQuick from "../../components/UpdateQuick";
 
 function Home() {
   const context = useContext(GetUserContext);
@@ -51,16 +54,18 @@ function Home() {
   return (
     <Layout>
       {'Hola '+ saludo}
-      <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
+      <div className="flex flex-col w-full max-w-screen-lg pl-14 pr-14 padding-bottom-240">
         {items?.map((item) => (
           <Card data={item} key={item.quick_id} />
         ))}
       </div>
       <UserDetail /> 
+      <QuickDetail />
       <Quick />
-      <button onClick={() => clickHandler()}>    
-        <PencilSquareIcon className="absolute bottom-24 right-96 rounded-lg cursor-pointer w-24 hover:bg-gray-200"/>     
-      </button>  
+      <UpdateQuick />
+      <div className="custom-width flex justify-end fixed bottom-0 bg-white">          
+        <PencilSquareIcon onClick={() => clickHandler()} className="flex rounded-lg cursor-pointer w-24 hover:bg-gray-200"/>      
+      </div>  
     </Layout>
   );
 }

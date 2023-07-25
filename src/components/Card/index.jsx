@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext } from "react";
-import { GetUserContext } from '../../Context'
+import { GetUserContext } from "../../Context";
 
 const Card = (data) => {
-  const context = useContext(GetUserContext)
+  const context = useContext(GetUserContext);
   const [user, setUser] = useState(null);
-  const token = context.tokenAuth
+  const token = context.tokenAuth;
 
   useEffect(() => {
     fetch(
@@ -17,44 +17,55 @@ const Card = (data) => {
   }, [data.data.by]);
 
   const showUser = async (userDetail, quick) => {
-    context.openUserDetail()
-    context.setUserToShow(userDetail)
-    context.setQuickInfo(quick)
-    
-    if(token != ''){
-      const usersIFollow = await fetch('https://quickerfastapi-1-h4833778.deta.app/usersfollowed', {method: 'GET',
-      credentials: "include" ,
-      headers: { "Content-Type": "application/json", "auth": token }})
-      const res = await usersIFollow.json()
-      console.log(res)
-                  
-      for (let i = 0; i < res.length; i++) {
-        if (res[i].user_id == userDetail.user_id){
-          context.setIFollow(false)
-          console.log(context.iFollow)
-          break
-        }else{
-          context.setIFollow(true)
+    context.setUserToShow(userDetail);
+    context.setQuickInfo(quick);
+    context.openUserDetail();
+      
+      if (token != "") {
+        const usersIFollow = await fetch(
+          "https://quickerfastapi-1-h4833778.deta.app/usersfollowed",
+          {
+            method: "GET",
+            credentials: "include",
+            headers: { "Content-Type": "application/json", auth: token },
+          }
+        );
+        const res = await usersIFollow.json();
+      if(context.follow)
+        for (let i = 0; i <= res.length; i++) {
+          if (res[i]?.user_id == userDetail.user_id) {
+            context.setIFollow("Unfollow");
+            context.setFollow(false)
+            break;
+          }
+          if (context.follow) {
+            context.setIFollow("Follow");
+            console.log(context.iFollow)
+          }
+        }      
+        if (userDetail.user_id == context.currentUser.user_id) {
+          context.setIFollow("Delete");
         }
       }
-      context.setShowButton(true)
-    } else {
-      context.setShowButton(true)
-    }
-  }
+  };
+
+  const quickDetail = (quick) => {
+    context.setQuickInfo(quick)
+    context.setIsQuickDetailOpen(true);
+  };
 
   return (
     <>
-      <div className="bg-white cursor-pointer w-56 h-60 rounded-lg mt-4 border">
+      <div className="bg-white rounded-lg mt-4 border">
         <figure className="relative mb-2 w-full h-4/5">
-          <span className="absolute bottom-0 left-0 bg-lime-400/60 rounded-lg text-black text-xs m-2 px-3 py-0.5">
+          <span onClick={() => showUser(user, data.data)} className="cursor-pointer left-0 bg-lime-400/60 rounded-lg text-black text-xs m-2 px-3 py-0.5">
             {user?.followers}
           </span>
-          <p className="w-full object-cover rounded-lg pt-6  pl-1 pr-1">
+          <p className="w-full object-cover rounded-lg pl-1 pr-1">
             {data.data.content}
           </p>
-          <div className="absolute top-0 right-0 flex justify-center items-center bg-lime-400/40 w-6 h-6 rounded-full m-2 p-1">
-            <button onClick={() => showUser(user, data.data)}>+</button>
+          <div onClick={() => quickDetail(data.data)} className="cursor-pointer absolute top-0 right-0 flex justify-center items-center bg-lime-400/40 w-6 h-6 rounded-full m-2 p-1">
+            +
           </div>
         </figure>
 
@@ -68,6 +79,5 @@ const Card = (data) => {
     </>
   );
 };
-
 
 export default Card;

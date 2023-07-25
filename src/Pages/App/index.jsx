@@ -5,6 +5,7 @@ import NotFound from '../NotFound'
 import Login from '../Login'
 import NavBar from '../../components/NavBar'
 import Signup from '../Signup'
+import Update from '../Update'
 import { GetUserProvider } from '../../Context'
 import Followers from '../Followers'
 
@@ -14,7 +15,8 @@ const AppRoutes = () => {
     { path: '/login', element: <Login/> },
     { path: '/*', element: <NotFound/> },
     { path: '/signup', element: <Signup/> },
-    { path: '/myfollowers', element: <Followers/> }
+    { path: '/myfollowers', element: <Followers/> },
+    { path: '/update', element: <Update/> }
   ])
 
   return routes
