@@ -20,6 +20,7 @@ const Card = (data) => {
     context.setUserToShow(userDetail);
     context.setQuickInfo(quick);
     context.openUserDetail();
+    context.setIsQuickDetailOpen(false)
       
       if (token != "") {
         const usersIFollow = await fetch(
@@ -52,6 +53,7 @@ const Card = (data) => {
   const quickDetail = (quick) => {
     context.setQuickInfo(quick)
     context.setIsQuickDetailOpen(true);
+    context.closeUserDetail()
   };
 
   return (

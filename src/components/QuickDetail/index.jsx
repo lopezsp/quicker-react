@@ -43,8 +43,8 @@ const QuickDetail = () => {
           <XMarkIcon className="h-6 w-6 text-blue-500 cursor-pointer"></XMarkIcon>
         </div>
       </div>
-      <figure>
-        <UserCircleIcon className="w-full h-full rounded-lg border mt-4"></UserCircleIcon>
+      <figure className="flex justify-center">
+        <UserCircleIcon className="icon w-full h-full rounded-lg border mt-4"></UserCircleIcon>
       </figure>
       <p className="flex flex-col p-6">
         <span className=" font-light text-md">

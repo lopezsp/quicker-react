@@ -3,3 +3,10 @@
     height: calc(100vh - 260px);
     top: 68px;
 }
+
+@media (max-width: 500px) {
+    .icon {
+      width: 96px;
+      height: 96px;
+    }   
+}
