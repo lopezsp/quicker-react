@@ -64,7 +64,7 @@ function Home() {
       <Quick />
       <UpdateQuick />
       <div className="custom-width flex justify-end fixed bottom-0 bg-lime-200 ">          
-        <PencilSquareIcon onClick={() => clickHandler()} className="icono mr-48 flex rounded-lg cursor-pointer w-24 hover:bg-gray-200"/>      
+        <PencilSquareIcon onClick={() => clickHandler()} className="icono flex rounded-lg cursor-pointer w-24 hover:bg-gray-200"/>      
       </div>  
     </Layout>
   );
