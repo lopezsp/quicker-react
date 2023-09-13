@@ -3,7 +3,7 @@
 }
 
 .custom-width {
-    max-width: 920px;
+    max-width: 100vw;
     height: 15%; 
     width: calc(100vw - 28px);
     padding-left: 1%;
