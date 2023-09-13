@@ -1,12 +1,12 @@
 .user-detail {
-    width: 360px;
-    height: calc(100vh - 260px);
-    top: 68px;
+  width: 360px;
+  height: 740px;
+  top: 70px;
 }
 
 @media (max-width: 500px) {
-    .icon {
-      width: 96px;
-      height: 96px;
-    }   
+  .icon {
+    width: 96px;
+    height: 96px;
+  }   
 }
