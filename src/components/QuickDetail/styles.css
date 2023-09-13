@@ -9,4 +9,8 @@
     width: 96px;
     height: 96px;
   }   
+
+  .quick-detail {
+    height: 600px;
+  }
 }

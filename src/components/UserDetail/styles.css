@@ -8,5 +8,9 @@
   .icon {
     width: 96px;
     height: 96px;
-  }   
+  }
+  
+  .user-detail {
+    height: 600px;
+  }
 }
