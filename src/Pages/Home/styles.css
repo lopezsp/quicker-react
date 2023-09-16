@@ -16,6 +16,7 @@
 @media (max-width: 500px) {
     .icono {
         width: 30%;
+        margin-right: 7%;
     }
 
     .custom-width {
