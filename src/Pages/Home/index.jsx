@@ -1,6 +1,6 @@
 import Layout from "../../components/Layout";
 import Card from "../../components/Card";
-import { PencilSquareIcon } from "@heroicons/react/24/solid";
+import { MoonIcon, PencilSquareIcon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
 import UserDetail from "../../components/UserDetail";
 import { useContext } from "react";
@@ -9,6 +9,7 @@ import Quick from '../../components/Quick'
 import QuickDetail from "../../components/QuickDetail";
 import "./styles.css";
 import UpdateQuick from "../../components/UpdateQuick";
+import { ThemeSwitcher } from "../../components/Theme";
 
 function Home() {
   const context = useContext(GetUserContext);
@@ -53,7 +54,8 @@ function Home() {
 
   return (
     <Layout>
-      <div className="text-green-300 mt-28">{'Hola '+ saludo}</div>
+      <div className="text-green-300 mt-28 flex align-top gap-3">{'Hola '+ saludo}<ThemeSwitcher/>
+      </div>
       
       <div className="flex flex-col w-full max-w-screen-lg pl-14 pr-14 padding-bottom-240">
         {items?.map((item) => (
@@ -64,8 +66,8 @@ function Home() {
       <QuickDetail />
       <Quick />
       <UpdateQuick />
-      <div className="custom-width flex justify-end fixed bottom-0 bg-green-300 ">          
-        <PencilSquareIcon onClick={() => clickHandler()} className="icono flex rounded-lg cursor-pointer w-24 hover:bg-gray-200"/>      
+      <div className="custom-width flex justify-end fixed bottom-0 bg-green-300 ">
+        <PencilSquareIcon onClick={() => clickHandler()} className="icono flex rounded-lg cursor-pointer w-24 hover:bg-gray-200"/>
       </div>  
     </Layout>
   );

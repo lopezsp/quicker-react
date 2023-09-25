@@ -15,7 +15,7 @@ export function ThemeSwitcher() {
        onClick={() => {
         setTheme('light');
         setDarkMode('light');
-      }}><SunIcon className="h-6 w-6 m-3"/></button>
+      }}><SunIcon className="h-6 w-6"/></button>
 
       <button className={`${
         darkMode == 'light' ? "flex" : "hidden"
@@ -23,7 +23,7 @@ export function ThemeSwitcher() {
       onClick={() => {
         setTheme('dark');
         setDarkMode('dark')
-      }}><MoonIcon className="h-6 w-6 m-3"/></button>
+      }}><MoonIcon className="h-6 w-6"/></button>
     </div>
   )
 };

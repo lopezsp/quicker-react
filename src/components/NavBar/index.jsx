@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import { GetUserContext } from "../../Context";
 import { useContext } from "react";
-import { ThemeSwitcher } from "../Theme";
 
 const NavBar = () => {
   const activeStyle = 'underline underline-offset-4'
@@ -22,9 +21,6 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink to='/myfollowers' className={({ isActive }) => isActive ? activeStyle : undefined }>Followers</NavLink>
-        </li>
-        <li>
-          <ThemeSwitcher/>
         </li>
       </ul>
       <ul className="flex items-center gap-3">
