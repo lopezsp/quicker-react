@@ -8,6 +8,11 @@ import Signup from '../Signup'
 import Update from '../Update'
 import { GetUserProvider } from '../../Context'
 import Followers from '../Followers'
+import {NextUIProvider} from "@nextui-org/react";
+import {ThemeProvider as NextThemesProvider} from "next-themes";
+
+
+
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -26,8 +31,12 @@ function App() {
   return (
     <GetUserProvider>
       <BrowserRouter>
-        <AppRoutes/>
-        <NavBar/>
+        <NextUIProvider>
+          <NextThemesProvider attribute="class" defaultTheme="dark">
+            <AppRoutes/>
+            <NavBar/>
+          </NextThemesProvider>
+        </NextUIProvider>
       </BrowserRouter>
     </GetUserProvider>
   )

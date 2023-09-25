@@ -53,7 +53,8 @@ function Home() {
 
   return (
     <Layout>
-      {'Hola '+ saludo}
+      <div className="text-green-300 mt-28">{'Hola '+ saludo}</div>
+      
       <div className="flex flex-col w-full max-w-screen-lg pl-14 pr-14 padding-bottom-240">
         {items?.map((item) => (
           <Card data={item} key={item.quick_id} />
@@ -63,7 +64,7 @@ function Home() {
       <QuickDetail />
       <Quick />
       <UpdateQuick />
-      <div className="custom-width flex justify-end fixed bottom-0 bg-lime-200 ">          
+      <div className="custom-width flex justify-end fixed bottom-0 bg-green-300 ">          
         <PencilSquareIcon onClick={() => clickHandler()} className="icono flex rounded-lg cursor-pointer w-24 hover:bg-gray-200"/>      
       </div>  
     </Layout>
