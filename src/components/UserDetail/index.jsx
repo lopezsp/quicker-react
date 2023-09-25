@@ -52,6 +52,14 @@ const UserDetail = () => {
       const res = await deleteUser.json();
       console.log(res);
       context.setTokenAuth('')
+      localStorage.removeItem('token')
+      localStorage.removeItem('user_id')
+      localStorage.removeItem('first_name')
+      localStorage.removeItem('birth_date')
+      localStorage.removeItem('nick_name')
+      localStorage.removeItem('last_name')
+      localStorage.removeItem('email')
+      localStorage.removeItem('followers')
       context.closeUserDetail()
     }
   };

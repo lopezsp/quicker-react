@@ -14,7 +14,7 @@ const Card = (data) => {
     )
       .then((response) => response.json())
       .then((u) => setUser(u));
-  }, [data.data.by]);
+  }, []);
 
   const showUser = async (userDetail, quick) => {
     context.setUserToShow(userDetail);

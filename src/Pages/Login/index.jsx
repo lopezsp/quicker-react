@@ -26,6 +26,14 @@ const Login = () => {
     const res = await response.json()
     const token = res.token
     const current_user = res.user
+    localStorage.setItem('token', token)
+    localStorage.setItem('user_id', current_user.user_id)
+    localStorage.setItem('first_name', current_user.first_name)
+    localStorage.setItem('birth_date', current_user.birth_date)
+    localStorage.setItem('nick_name', current_user.nick_name)
+    localStorage.setItem('last_name', current_user.last_name)
+    localStorage.setItem('email', current_user.email)
+    localStorage.setItem('followers', current_user.followers)
     context.setTokenAuth(token)
     context.setCurrentUser(current_user)
     navigate('/')
@@ -33,7 +41,7 @@ const Login = () => {
 
   return (
     <Layout>
-      <section className="m-0 font-serif bg-lime-200 rounded-lg flex items-center flex-col justify-center p-10">
+      <section className="m-0 font-serif bg-green-300 rounded-lg flex items-center flex-col justify-center p-10 mt-28">
         <section className="flex flex-col">
           <h2>Log in</h2>
           <form className="flex flex-col" onSubmit={handleSubmit}>

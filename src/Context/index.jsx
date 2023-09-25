@@ -27,9 +27,19 @@ export const GetUserProvider = ({ children }) => {
 
   const [quickInfo, setQuickInfo] = useState({});
 
-  const [tokenAuth, setTokenAuth] = useState("");
+  const [tokenAuth, setTokenAuth] = useState(localStorage.getItem('token'));
 
-  const [currentUser, setCurrentUser] = useState({});
+  const current_user = {
+    "user_id": localStorage.getItem('user_id'),
+    "first_name": localStorage.getItem('first_name'),
+    "birth_date": localStorage.getItem('birth_date'),
+    "nick_name": localStorage.getItem('nick_name'),
+    "last_name": localStorage.getItem('last_name'),
+    "email": localStorage.getItem('email'),
+    "followers": localStorage.getItem('followers')
+  }
+
+  const [currentUser, setCurrentUser] = useState(current_user);
 
   const [iFollow, setIFollow] = useState('')
 

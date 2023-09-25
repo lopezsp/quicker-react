@@ -1,6 +1,6 @@
 import Layout from "../../components/Layout";
 import Card from "../../components/Card";
-import { MoonIcon, PencilSquareIcon } from "@heroicons/react/24/solid";
+import { PencilSquareIcon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
 import UserDetail from "../../components/UserDetail";
 import { useContext } from "react";

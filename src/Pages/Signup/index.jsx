@@ -32,7 +32,7 @@ const Signup = () => {
 
   return (
     <Layout>
-      <section className="m-0 font-serif bg-lime-200 rounded-lg flex items-center flex-col justify-center p-10">
+      <section className="mt-28 m-0 font-serif bg-green-300 rounded-lg flex items-center flex-col justify-center p-10">
         <section className="flex flex-col">
           <h2>Sign Up!</h2>
           <form className="flex flex-col" onSubmit={handleSubmit}>

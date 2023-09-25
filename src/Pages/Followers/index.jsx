@@ -23,7 +23,7 @@ const Followers = () => {
 
   return (
     <Layout>
-      <div className="mt-24 flex flex-col w-full max-w-screen-lg items-center">
+      <div className="mt-24 flex flex-col w-80 items-center bg-green-300 rounded-lg">
         {followers?.map((follower) => (
           <div className="h-16" key={follower.user_id}>
             {follower.nick_name + " "}
