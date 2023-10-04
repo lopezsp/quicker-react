@@ -59,12 +59,12 @@ const Card = (data) => {
 
   return (
     <>
-      <div className="bg-green-100/60 rounded-lg mt-4 border">
+      <div className="custom-card bg-green-100/60 rounded-lg mt-4 border">
         <figure className="relative mb-2 w-full h-4/5">
           <span className="cursor-pointer left-0 bg-green-300 rounded-lg text-black text-xs m-2 px-3 py-0.5">
             {user?.followers}
           </span>
-          <p className="w-full object-cover rounded-lg pl-1 pr-1">
+          <p className="letra w-full object-cover rounded-lg pl-1 pr-1">
             {data.data.content}
           </p>
           <div onClick={() => quickDetail(data.data)} className="cursor-pointer absolute top-0 right-0 flex justify-center items-center bg-green-300 w-6 h-6 rounded-full m-2 p-1">

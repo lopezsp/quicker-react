@@ -23,5 +23,11 @@
         height: 6%;    
     }
 }
+
+@media (resolution: 1.5dppx) {
+    .custom-width {
+        height: 12%;
+    }
+}
   
 
