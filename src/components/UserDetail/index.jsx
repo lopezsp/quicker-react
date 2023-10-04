@@ -68,7 +68,7 @@ const UserDetail = () => {
     <aside
       className={`${
         context.isUserOpen ? "flex" : "hidden"
-      } user-detail flex flex-col absolute bg-white left-0 border border-black rounded-lg p-6`}
+      } user-detail flex flex-col fixed bg-white left-0 border border-black rounded-lg p-6`}
     >
       <div className="flex justify-between items-center">
         <h2 className="font-medium text-xl">{context.userToShow.nick_name}</h2>
@@ -80,19 +80,19 @@ const UserDetail = () => {
         <UserCircleIcon className="icon w-full h-full rounded-lg border mt-4"></UserCircleIcon>
       </figure>
       <p className="flex flex-col p-6">
-        <span className=" font-light text-md">
+        <span className="letra font-light text-md">
           Email:{context.userToShow.email}
         </span>
-        <span className="font-light text-md ">
+        <span className="letra font-light text-md ">
           Name: {context.userToShow.first_name}
         </span>
-        <span className="font-light text-md">
+        <span className="letra font-light text-md">
           Lastname: {context.userToShow.last_name}
         </span>
-        <span className="font-light text-md">
+        <span className="letra font-light text-md">
           Birthdate: {context.userToShow.birth_date}
         </span>
-        <span className="font-light text-md">
+        <span className="letra font-light text-md">
           Followers: {context.userToShow.followers}
         </span>
       </p>

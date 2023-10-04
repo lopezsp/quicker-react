@@ -14,3 +14,20 @@
     height: 600px;
   }
 }
+
+@media (resolution: 1.5dppx) {
+  .quick-detail {
+    width: 340px;
+    height: 476px;
+    top: 75px;
+  }
+
+  .letra {
+    font-size: small;
+  }
+
+  .icon {
+    width: 240px;
+    height: 240px;
+  }
+}

@@ -35,7 +35,7 @@ const QuickDetail = () => {
     <aside
       className={`${
         context.isQuickDetailOpen ? "flex" : "hidden"
-      } quick-detail flex flex-col absolute bg-white left-0 border border-black rounded-lg p-6`}
+      } quick-detail flex flex-col fixed bg-white left-0 border border-black rounded-lg p-6`}
     >
       <div className="flex justify-between items-center">
         <h2 className="font-medium text-xl">Quick {context.quickInfo.quick_id}</h2>
@@ -47,13 +47,13 @@ const QuickDetail = () => {
         <UserCircleIcon className="icon w-full h-full rounded-lg border mt-4"></UserCircleIcon>
       </figure>
       <p className="flex flex-col p-6">
-        <span className=" font-light text-md">
+        <span className="letra font-light text-md">
           By: {context.quickInfo.by}
         </span>
-        <span className="font-light text-md">
+        <span className="letra font-light text-md">
           Created at: {context.quickInfo.created_at}
         </span>
-        <span className="font-light text-md">
+        <span className="letra font-light text-md">
           Updated at :{context.quickInfo.updated_at}
         </span>
       </p>
