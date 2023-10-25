@@ -38,7 +38,7 @@ const UpdateQuick = () => {
 
   return (
     <aside
-      className={`${context.isUpdateQuickOpen ? "absolute" : "hidden"} mt-48 w-96`}
+      className={`${context.isUpdateQuickOpen ? "fixed" : "hidden"} mt-48 w-96`}
     >
       <div onClick={() => context.closeUpdateQuick()}>
         <XMarkIcon className="h-6 w-6 ml-auto text-blue-500 cursor-pointer"></XMarkIcon>
