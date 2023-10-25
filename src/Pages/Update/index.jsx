@@ -18,6 +18,7 @@ const Update = () => {
     const first_name = event.target.elements.first_name.value;
     const last_name = event.target.elements.last_name.value;
     const birth_date = event.target.elements.birth_date.value;
+    const profile_image = event.target.elements.profile_image.value;
 
     const url = "https://quickerfastapi-1-h4833778.deta.app/users/update";
     
@@ -26,7 +27,7 @@ const Update = () => {
       headers: {
         "Content-Type": "application/json", auth: token
       },
-      body: JSON.stringify({ 'email': email, 'password': password, 'nick_name': nick_name, 'first_name': first_name, 'last_name': last_name, 'birth_date': birth_date}),
+      body: JSON.stringify({ 'email': email, 'password': password, 'nick_name': nick_name, 'first_name': first_name, 'last_name': last_name, 'birth_date': birth_date, 'profile_image': profile_image}),
 
     })
     const res = await response.json()
@@ -36,7 +37,7 @@ const Update = () => {
 
   return (
     <Layout>
-      <section className="m-0 font-serif bg-lime-200 rounded-lg flex items-center flex-col justify-center p-10">
+      <section className="mt-28 m-0 font-serif bg-green-300 rounded-lg flex items-center flex-col justify-center p-10">
         <section className="flex flex-col">
           <h2>Update!</h2>
           <form className="flex flex-col" onSubmit={handleSubmit}>
@@ -46,7 +47,8 @@ const Update = () => {
             <input className="m-3 mt-1 w-56" type="text" placeholder="First name" name="first_name" />
             <input className="m-3 mt-1 w-56" type="text" placeholder="Last name" name="last_name" />
             <input className="m-3 mt-1 w-56" type="date" placeholder="Birth date" name="birth_date" />
-              <button type="submit">DONE</button>            
+            <input className="m-3 mt-1 w-56" type="file" accept="image/*" name="profile_image"/>
+            <button type="submit">DONE</button>            
           </form>
           {/* <section className="login__container--social-media">
             <div>

@@ -13,7 +13,7 @@ const UserDetail = () => {
       user_followed_id: context.userToShow.user_id,
     };
     const token = context.tokenAuth;
-
+    
     if (context.iFollow == "Follow") {
       const follow = await fetch(
         `https://quickerfastapi-1-h4833778.deta.app/follow`,
@@ -64,6 +64,8 @@ const UserDetail = () => {
     }
   };
 
+  const image = context.userToShow.profile_image
+
   return (
     <aside
       className={`${
@@ -76,8 +78,11 @@ const UserDetail = () => {
           <XMarkIcon className="h-6 w-6 text-blue-500 cursor-pointer"></XMarkIcon>
         </div>
       </div>
-      <figure className="flex justify-center">
+      {/*<figure className="flex justify-center">
         <UserCircleIcon className="icon w-full h-full rounded-lg border mt-4"></UserCircleIcon>
+      </figure>*/}
+      <figure className="flex justify-center">
+        <img src={image} alt="profile pic" />
       </figure>
       <p className="flex flex-col p-6">
         <span className="letra font-light text-md">

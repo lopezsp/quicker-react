@@ -10,6 +10,7 @@ import QuickDetail from "../../components/QuickDetail";
 import "./styles.css";
 import UpdateQuick from "../../components/UpdateQuick";
 import { ThemeSwitcher } from "../../components/Theme";
+import { data } from "autoprefixer";
 
 function Home() {
   const context = useContext(GetUserContext);

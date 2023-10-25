@@ -42,6 +42,7 @@ const Signup = () => {
             <input className="m-3 mt-1 w-56" type="text" placeholder="First name" name="first_name" />
             <input className="m-3 mt-1 w-56" type="text" placeholder="Last name" name="last_name" />
             <input className="m-3 mt-1 w-56" type="date" placeholder="Birth date" name="birth_date" />
+            <input type="file" accept="image/*" />
               <button type="submit">DONE</button>            
             <div className="">
               <label className=" font-normal pr-4">

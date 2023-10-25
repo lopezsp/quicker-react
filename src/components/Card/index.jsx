@@ -15,7 +15,7 @@ const Card = (data) => {
     )
       .then((response) => response.json())
       .then((u) => setUser(u));
-  }, []);
+    }, []);
 
   const showUser = async (userDetail, quick) => {
     context.setUserToShow(userDetail);
@@ -56,6 +56,8 @@ const Card = (data) => {
     context.setIsQuickDetailOpen(true);
     context.closeUserDetail()
   };
+
+  console.log(user)
 
   return (
     <>
