@@ -78,9 +78,9 @@ const UserDetail = () => {
           <XMarkIcon className="h-6 w-6 text-blue-500 cursor-pointer"></XMarkIcon>
         </div>
       </div>
-      {/*<figure className="flex justify-center">
+      <figure className="flex justify-center">
         <UserCircleIcon className="icon w-full h-full rounded-lg border mt-4"></UserCircleIcon>
-      </figure>*/}
+      </figure>
       <figure className="flex justify-center">
         <img src={image} alt="profile pic" />
       </figure>
