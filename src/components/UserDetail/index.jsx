@@ -64,8 +64,6 @@ const UserDetail = () => {
     }
   };
 
-  const image = context.userToShow.profile_image
-
   return (
     <aside
       className={`${
@@ -80,9 +78,6 @@ const UserDetail = () => {
       </div>
       <figure className="flex justify-center">
         <UserCircleIcon className="icon w-full h-full rounded-lg border mt-4"></UserCircleIcon>
-      </figure>
-      <figure className="flex justify-center">
-        <img src={image} alt="profile pic" />
       </figure>
       <p className="flex flex-col p-6">
         <span className="letra font-light text-md">
