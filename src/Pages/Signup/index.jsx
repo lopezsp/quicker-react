@@ -34,16 +34,16 @@ const Signup = () => {
     <Layout>
       <section className="m-0 font-serif bg-green-300 rounded-lg flex items-center flex-col justify-center p-10 mt-28">
         <section className="flex flex-col">
-          <h2 className="pl-10">Sign Up!</h2>
-          <form className="flex flex-col pl-10" onSubmit={handleSubmit}>
-            <input className=" m-3 mb-1 w-56" type="text" placeholder="Correo" name="email"/>
-            <input className="m-3 mt-1 w-56" type="password" placeholder="Contraseña" name="password" />
-            <input className="m-3 mt-1 w-56" type="text" placeholder="Nick name" name="nick_name" maxLength="12" />
-            <input className="m-3 mt-1 w-56" type="text" placeholder="First name" name="first_name" />
-            <input className="m-3 mt-1 w-56" type="text" placeholder="Last name" name="last_name" />
-            <input className="m-3 mt-1 w-56" type="date" placeholder="Birth date" name="birth_date" />
-            <input type="file" accept="image/*" />
-              <button type="submit">DONE</button>            
+          <h2>Sign Up!</h2>
+          <form className="flex flex-col" onSubmit={handleSubmit}>
+            <input className=" m-3 mb-1 w-56 rounded-lg" type="text" placeholder="Correo" name="email"/>
+            <input className="m-3 mt-1 w-56 rounded-lg" type="password" placeholder="Contraseña" name="password" />
+            <input className="m-3 mt-1 w-56 rounded-lg" type="text" placeholder="Nick name" name="nick_name" maxLength="12" />
+            <input className="m-3 mt-1 w-56 rounded-lg" type="text" placeholder="First name" name="first_name" />
+            <input className="m-3 mt-1 w-56 rounded-lg" type="text" placeholder="Last name" name="last_name" />
+            <input className="m-3 mt-1 w-56 rounded-lg" type="date" placeholder="Birth date" name="birth_date" />
+            {/*<input type="file" accept="image/*" />*/}
+              <button className="bg-white rounded-lg w-24 self-center" type="submit">DONE</button>            
             <div className="">
               <label className=" font-normal pr-4">
                 <input type="checkbox" id="cbox1" value="first_checkbox" />
@@ -61,8 +61,7 @@ const Signup = () => {
             </div>
           </section> */}
           
-            <a className=" self-center" href="/signup">Sign up</a>
-          
+                      
         </section>
       </section>
     </Layout>

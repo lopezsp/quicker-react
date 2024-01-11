@@ -45,9 +45,9 @@ const Login = () => {
         <section className="flex flex-col">
           <h2>Log in</h2>
           <form className="flex flex-col" onSubmit={handleSubmit}>
-            <input className=" m-3 mb-1 w-56" type="text" placeholder="Correo" name="email"/>
-            <input className="m-3 mt-1 w-56" type="password" placeholder="Contraseña" name="password" />
-              <button type="submit">Log in</button>            
+            <input className=" m-3 mb-1 w-56 rounded-lg" type="text" placeholder="Correo" name="email"/>
+            <input className="m-3 mt-1 w-56 rounded-lg" type="password" placeholder="Contraseña" name="password" />
+              <button className="rounded-lg w-24 bg-white self-center" type="submit">Log in</button>            
             <div className="">
               <label className=" font-normal pr-4">
                 <input type="checkbox" id="cbox1" value="first_checkbox" />
@@ -65,7 +65,7 @@ const Login = () => {
             </div>
           </section> */}
           
-            <a className=" self-center" href="/signup">Sign up</a>
+            <a className=" rounded-lg w-24 bg-white self-center flex flex-col items-center" href="/signup">Sign up</a>
           
         </section>
       </section>
