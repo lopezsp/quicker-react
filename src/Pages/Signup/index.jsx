@@ -32,10 +32,10 @@ const Signup = () => {
 
   return (
     <Layout>
-      <section className="mt-28 m-0 font-serif bg-green-300 rounded-lg flex items-center flex-col justify-center p-10">
+      <section className="m-0 font-serif bg-green-300 rounded-lg flex items-center flex-col justify-center p-10 mt-28">
         <section className="flex flex-col">
-          <h2>Sign Up!</h2>
-          <form className="flex flex-col" onSubmit={handleSubmit}>
+          <h2 className="pl-10">Sign Up!</h2>
+          <form className="flex flex-col pl-10" onSubmit={handleSubmit}>
             <input className=" m-3 mb-1 w-56" type="text" placeholder="Correo" name="email"/>
             <input className="m-3 mt-1 w-56" type="password" placeholder="Contraseña" name="password" />
             <input className="m-3 mt-1 w-56" type="text" placeholder="Nick name" name="nick_name" maxLength="12" />
